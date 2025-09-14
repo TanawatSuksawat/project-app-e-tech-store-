@@ -1,0 +1,112 @@
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
+
+async function main() {
+  await prisma.product.deleteMany();
+  await prisma.product.createMany({
+    data: [
+      {
+        id: "p1",
+        slug: "pro-headphones-x1",
+        name: "Pro Headphones X1",
+        description: "หูฟังระดับโปร เสียงใส เบสแน่น",
+        price: 89900,
+        images: JSON.stringify(["/hero-headphones.png"]),
+        category: "audio",
+        stock: 10,
+      },
+      {
+        id: "p2",
+        slug: "quantum-drone-q8",
+        name: "Quantum Drone Q8",
+        description: "โดรนบินนิ่ง ภาพคมชัด 4K",
+        price: 189900,
+        images: JSON.stringify(["/hero-drone.png"]),
+        category: "drone",
+        stock: 5,
+      },
+      {
+        id: "p3",
+        slug: "ultra-laptop-z9",
+        name: "Ultra Laptop Z9",
+        description: "โน้ตบุ๊คบางเบา สเปคแรง",
+        price: 299900,
+        images: JSON.stringify(["/placeholder.png"]),
+        category: "laptop",
+        stock: 7,
+      },
+      {
+        id: "p4",
+        slug: "smart-mobile-m5",
+        name: "Smart Mobile M5",
+        description: "มือถือจอใหญ่ กล้องคมชัด",
+        price: 159900,
+        images: JSON.stringify(["/placeholder.png"]),
+        category: "mobile",
+        stock: 12,
+      },
+      {
+        id: "p5",
+        slug: "wireless-earbuds-e2",
+        name: "Wireless Earbuds E2",
+        description: "หูฟังไร้สาย เสียงดี",
+        price: 49900,
+        images: JSON.stringify(["/placeholder.png"]),
+        category: "audio",
+        stock: 20,
+      },
+      {
+        id: "p6",
+        slug: "mini-drone-d2",
+        name: "Mini Drone D2",
+        description: "โดรนขนาดเล็ก บินง่าย",
+        price: 79900,
+        images: JSON.stringify(["/placeholder.png"]),
+        category: "drone",
+        stock: 8,
+      },
+      {
+        id: "p7",
+        slug: "gaming-laptop-g7",
+        name: "Gaming Laptop G7",
+        description: "โน้ตบุ๊คเกมมิ่ง การ์ดจอแรง",
+        price: 399900,
+        images: JSON.stringify(["/placeholder.png"]),
+        category: "laptop",
+        stock: 4,
+      },
+      {
+        id: "p8",
+        slug: "smartphone-x10",
+        name: "Smartphone X10",
+        description: "มือถือสเปคสูง ราคาคุ้ม",
+        price: 129900,
+        images: JSON.stringify(["/placeholder.png"]),
+        category: "mobile",
+        stock: 15,
+      },
+      {
+        id: "p9",
+        slug: "studio-headphones-h9",
+        name: "Studio Headphones H9",
+        description: "หูฟังสตูดิโอ คุณภาพเสียงเยี่ยม",
+        price: 109900,
+        images: JSON.stringify(["/placeholder.png"]),
+        category: "audio",
+        stock: 6,
+      },
+      {
+        id: "p10",
+        slug: "drone-pro-max",
+        name: "Drone Pro Max",
+        description: "โดรนโปรสำหรับงานถ่ายภาพ",
+        price: 259900,
+        images: JSON.stringify(["/placeholder.png"]),
+        category: "drone",
+        stock: 3,
+      },
+    ],
+  });
+}
+
+main().finally(() => prisma.$disconnect());
